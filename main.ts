@@ -28,26 +28,27 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     sprite.destroy()
     otherSprite.destroy(effects.fire, 500)
     info.changeScoreBy(10)
+    music.smallCrash.play()
 })
 let asteroid1: Sprite = null
 let projectile: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
-    . 2 . . . . . . . . . . . . . 2 
-    . 2 . . . . d d d d d . . . . 2 
-    . . 2 . . d d 8 8 8 d d d . 2 . 
-    . . . 2 . d 8 8 8 8 8 8 d 2 . . 
-    . . . d d 8 8 8 8 8 8 8 8 d d . 
-    . . d d 8 8 8 8 8 8 8 8 8 8 d d 
-    . 1 d 1 8 1 8 8 1 8 1 8 8 1 8 1 
-    d 1 8 1 8 1 8 8 1 8 1 8 8 1 8 1 
-    d 8 8 8 8 8 8 8 8 8 8 8 8 8 8 d 
-    d d 8 8 8 8 8 8 8 8 8 8 8 8 d d 
-    . d d d 8 8 8 8 8 8 8 8 8 d d . 
-    . . . d d d 8 8 8 8 8 d d d . . 
-    . . . . . d d d d d d d . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    b b b . . . . . . . . . . . . . 
+    . b b b . . . . . . . . . . . . 
+    . b 6 6 b b . . . . . . . . . . 
+    . b 6 7 6 6 b b . . . . . . . . 
+    . . b 6 7 6 6 6 b b . . . . . . 
+    . . . b 6 6 7 6 6 6 b b . . . . 
+    . . 2 b 6 6 6 6 6 b 7 b b b . . 
+    . 2 2 b 6 6 6 6 b b 7 7 b b b b 
+    . . 2 b 6 6 6 6 6 b 7 b b b . . 
+    . . . b 6 6 7 6 6 6 b b . . . . 
+    . . b 6 7 6 6 6 b b . . . . . . 
+    . b 6 7 6 6 b b . . . . . . . . 
+    . b 6 6 b b . . . . . . . . . . 
+    . b b b . . . . . . . . . . . . 
+    b b b . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 100)
@@ -60,14 +61,14 @@ game.onUpdateInterval(2000, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . . . 4 4 . . . . . . . 
-        . . . . . 4 4 4 4 4 . . . . . . 
-        . . . . 4 4 4 4 4 4 4 . . . . . 
-        . . . . 4 4 4 4 4 4 4 . . . . . 
-        . . . . 4 4 4 4 4 4 . . . . . . 
-        . . . . . . 4 4 4 . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 c 4 a 4 b . . . 
+        . . . . . . 4 c 4 a 4 b 4 b . . 
+        . . . . . 4 4 4 4 a a b b b . . 
+        . . . . a 4 a a 4 a 4 b b 4 . . 
+        . . . . 4 a a 4 4 4 a 4 b . . . 
+        . . . . . 4 4 a a 4 4 b 4 . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . . 4 . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
