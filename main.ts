@@ -17,18 +17,20 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite, 50, 0)
-    music.knock.play()
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-    otherSprite.destroy(effects.spray, 500)
-    scene.cameraShake(4, 500)
+    music.thump.play()
+    music.stopAllSounds()
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy()
     otherSprite.destroy(effects.fire, 500)
     info.changeScoreBy(10)
     music.smallCrash.play()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    otherSprite.destroy(effects.spray, 500)
+    scene.cameraShake(4, 500)
+    music.bigCrash.play()
 })
 let asteroid1: Sprite = null
 let projectile: Sprite = null
